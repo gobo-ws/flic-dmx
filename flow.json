@@ -1,0 +1,95 @@
+[
+    {
+        "id": "f12a1dae.d01468",
+        "type": "tab",
+        "label": "Flic DMX flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3f297f68.30c848",
+        "type": "flic",
+        "z": "f12a1dae.d01468",
+        "name": "Flic button",
+        "button": "d88f1198.00e4d",
+        "event": "ButtonClick",
+        "topic": "flic",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "6076f2d6.09ed34"
+            ]
+        ]
+    },
+    {
+        "id": "fb336820.be99f",
+        "type": "ola",
+        "z": "f12a1dae.d01468",
+        "name": "OLA Server",
+        "host": "localhost",
+        "port": 9090,
+        "universe": 1,
+        "size": 512,
+        "x": 710,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6076f2d6.09ed34",
+        "type": "function",
+        "z": "f12a1dae.d01468",
+        "name": "Button click - Channel 1 full on",
+        "func": "msg.payload={\n    \"channel\": 1,\n    \"value\": 255\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "fb336820.be99f"
+            ]
+        ]
+    },
+    {
+        "id": "3ec0a212.20baf6",
+        "type": "function",
+        "z": "f12a1dae.d01468",
+        "name": "Button hold - Channel 1 blackout",
+        "func": "msg.payload={\n    \"channel\": 1,\n    \"value\": 0\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "fb336820.be99f"
+            ]
+        ]
+    },
+    {
+        "id": "c7860292.c3256",
+        "type": "flic",
+        "z": "f12a1dae.d01468",
+        "name": "Flic button",
+        "button": "d88f1198.00e4d",
+        "event": "ButtonHold",
+        "topic": "flic",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "3ec0a212.20baf6"
+            ]
+        ]
+    },
+    {
+        "id": "d88f1198.00e4d",
+        "type": "Flic Button",
+        "z": "",
+        "address": "xx:xx:xx:xx:xx:xx",
+        "name": "my_flic_button",
+        "host": "localhost",
+        "port": "5551"
+    }
+]
