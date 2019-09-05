@@ -1,4 +1,4 @@
-Node-RED flow to control DMX devices with [Flic buttons.](https://flic.io/)
+Node-RED flow to control DMX devices with [Flic buttons.](https://flic.io/)  
 [Flow info](https://flows.nodered.org/flow/2fbbf4e86e34adadc03f155852461fac)  
 
 This example sets the following values:  
